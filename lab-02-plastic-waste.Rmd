@@ -12,7 +12,7 @@ output: html_document
 ```
 
 ```{r load-data, message=FALSE}
-plastic_waste <- read.csv(here::here("data/plastic-waste.csv"))
+plastic_waste <- read_csv(here::here("data", "plastic-waste.csv"))
 ```
 
 ## Exercises

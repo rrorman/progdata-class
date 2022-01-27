@@ -10,7 +10,7 @@ Hello everyone! My name is Reilly, and I am currently a Senior Psychology major 
 I was born and raised in Tampa, and I have two older sisters, both of whom also attended USF.
 I have two cats, Billie and Artichoke (Artie), and my partner and I love them very much. 
 
-![Here is a picture of Billie and Artie](C:\Users\Reilly\Pictures\cats.jpg)
+![Here is a picture of Billie and Artie](pictures/cats.jpg)
 
 ## Hobbies
 
