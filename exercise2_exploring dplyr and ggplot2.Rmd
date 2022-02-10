@@ -1,0 +1,37 @@
+---
+title: "practice dplyr functions"
+author: "Reilly Orman"
+date: "2/9/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+library("palmerpenguins")
+```
+
+```{r 2.1a}
+summary_table <- palmerpenguins::penguins |> 
+  summarize(
+    mean_billLength = mean(bill_length_mm, na.rm = TRUE),
+    sd_billLength = sd(bill_length_mm, na.rm = TRUE), 
+    mean_flipperLength = mean(flipper_length_mm, na.rm = TRUE),
+    sd_flipperLength = sd(flipper_length_mm, na.rm = TRUE)
+  )
+```
+
+```{r 2.1b}
+ggplotpalmerpenguins::penguins) +
+  aes(x = bill_length_mm, y = flipper_length_mm) +
+  geom_point(color = "blue") +
+  scale_x_continuous(name = "Bill Length (mm)") +
+  scale_y_continuous("Flipper Length (mm)")
+```
+
+```{r}
+
+```
+
+
+

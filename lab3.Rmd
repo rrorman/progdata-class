@@ -29,7 +29,6 @@ new_gap <- gapminder |>
   mutate(lifeExp_change = lifeExp - lag(lifeExp)) |> 
   filter(lifeExp_change < 0)
 
-new_gap
 ```
 
 ```{r 1.4}
@@ -53,6 +52,56 @@ ggplot(canada) +
   ) +
   labs(title = "Canada's Life Expectancy vs. GDP per Capita")
 ```
+
+```{r 2.1a}
+palmerpenguins::penguins |> 
+  summarize(
+    mean_billLength = mean(bill_length_mm, na.rm = TRUE),
+    sd_billLength = sd(bill_length_mm, na.rm = TRUE), 
+    mean_flipperLength = mean(flipper_length_mm, na.rm = TRUE),
+    sd_flipperLength = sd(flipper_length_mm, na.rm = TRUE)
+  )
+```
+
+```{r 2.1b}
+ggplot(palmerpenguins::penguins) +
+  aes(x = bill_length_mm, y = flipper_length_mm) +
+  geom_point(color = "blue") +
+  scale_x_continuous(name = "Bill Length (mm)") +
+  scale_y_continuous("Flipper Length (mm)") +
+  labs(title = "Bill Length (mm) by Flipper Length (mm)")
+```
+
+```{r 2.2a}
+palmerpenguins::penguins |>
+  group_by(species) |> 
+  summarize(n = n(),
+            mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+            sd_body_mass_g = sd(body_mass_g, na.rm = TRUE))
+```
+
+```{r 2.2b}
+ggplot(na.omit(palmerpenguins::penguins)) +
+  aes(y = species, 
+      x = body_mass_g,
+      fill = species,
+      color = species) +
+  geom_jitter(height = .15) +
+  geom_boxplot(color = "black",
+               alpha = .5,
+               width = .1,
+               size = .5) +
+  ggdist::stat_slab(height = .3,
+                    color = "black",
+                    size = .2,
+                    alpha = .5,
+                    position = position_nudge(y = .2)) +
+  scale_x_continuous("Body Mass (g)") +
+  scale_y_discrete("Species") +
+  labs(title = "Body Mass by Species")
+  
+```
+
 
 
 
