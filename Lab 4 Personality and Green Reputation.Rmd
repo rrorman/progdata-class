@@ -1,0 +1,41 @@
+---
+title: 'Lab 4: Personality and Green Reputation'
+author: "Reilly Orman"
+date: "2/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+library("ggplot2")
+dictionary <- readr::read_csv(here::here("data", "green_dictionary.csv"), na = c(""))
+green_data <- readr::read_csv(here::here("data", "green_data.csv"))
+```
+
+```{r recode}
+dict <- dictionary |> 
+  filter(Keying < 0) |> 
+  pull(Item) 
+
+new_green_data <- green_data |> 
+  mutate(
+    across(
+      all_of(dict), 
+      \(x) recode(x, "1" = "5", "2" = "4", "3" = "3", "4" = "2", "5" = "1", "99" = "NA", .default = "NA")
+      ))
+```
+
+```{r total scores}
+new_green_data |>
+  mutate(
+    green_total = mean(c_across(green1:green5), na.rm = TRUE),
+    comp_total = mean(c_across(comp1:comp10), na.rm = TRUE),
+    intel_total = mean(c_across(intel1:intel10), na.rm = TRUE),
+    open_total = mean(c_across(open1:open10), na.rm = TRUE),
+    .before = everything()
+    ) |> 
+  head()
+```
+
+
