@@ -13,6 +13,11 @@ dictionary <- readr::read_csv(here::here("data", "green_dictionary.csv"), na = c
 green_data <- readr::read_csv(here::here("data", "green_data.csv"))
 ```
 
+```{r 1.0}
+
+```
+
+
 ```{r recode}
 dict <- dictionary |> 
   filter(Keying < 0) |> 
