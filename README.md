@@ -24,4 +24,6 @@ Listening to music is an activity that I spend a majority of my time doing. Some
 
 [Here is a link to my Spotify](https://open.spotify.com/user/reilly.orman?si=da532f50d73d4f40)
 
+## Portfolio 1 Piece
 
+[This is a link to my Portfolio 1 Project Repo](https://github.com/rrorman/portfolio-1)
