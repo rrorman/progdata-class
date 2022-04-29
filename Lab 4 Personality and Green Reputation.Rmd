@@ -13,8 +13,12 @@ dictionary <- readr::read_csv(here::here("data", "green_dictionary.csv"), na = c
 green_data <- readr::read_csv(here::here("data", "green_data.csv"))
 ```
 
-```{r 1.0}
 
+
+```{r 1.0}
+unique(dictionary)
+
+sort(unique(green_data$green1))
 ```
 
 
@@ -26,13 +30,14 @@ dict <- dictionary |>
 new_green_data <- green_data |> 
   mutate(
     across(
-      all_of(dict), 
-      \(x) recode(x, "1" = "5", "2" = "4", "3" = "3", "4" = "2", "5" = "1", "99" = "NA", .default = "NA")
+      -id, 
+      \(x) recode(x, "1" = 5, "2" = 4, "3" = 3, "4" = 2, "5" = 1, "99" = NA_real_)
       ))
 ```
 
 ```{r total scores}
-new_green_data |>
+
+new_green_data <- new_green_data |>
   mutate(
     green_total = mean(c_across(green1:green5), na.rm = TRUE),
     comp_total = mean(c_across(comp1:comp10), na.rm = TRUE),
@@ -41,6 +46,23 @@ new_green_data |>
     .before = everything()
     ) |> 
   head()
+
 ```
 
+```{r rescale}
+dat_green_data <- new_green_data |> 
+  mutate(
+    across(
+      green_total:open_total,
+      \(x) scales::rescale(x, to = c(0, 100), from = c(1, 5)),
+      .names = "{.col}_pomp"),
+    .before = everything()
+  )
+```
+
+```{r}
+ggplot(dat_green_data) +
+  aes(x = green_total_pomp) +
+  geom_histogram(bins = 1)
+```
 
