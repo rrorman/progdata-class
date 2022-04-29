@@ -53,11 +53,13 @@ ggplot(na.omit(plastic_waste)) +
                     position = position_nudge(y = .3))
 ```
 
-### Exercise 3
+### Exercise 3.1-3.2
 
-Remove this text, and add your answer for Exercise 3 here.
+There appears to be a somewhat positive relationship between plastic waste per capita and mismanaged plastic waste.
 
-```{r}
+Upon coloring the points by continent, continents like Asia, Oceania, and South America seem to have countries that have a high mismanaged plastic waste per capita. Europe appears to have the least mismanaged plastic waste per capita while having a high plastic waste per capita. 
+
+```{r plastic-waste-mismanaged-plastic-waste}
 ggplot(plastic_waste) +
   aes(x = plastic_waste_per_cap,
       y = mismanaged_plastic_waste_per_cap,
@@ -66,48 +68,53 @@ ggplot(plastic_waste) +
 ```
 
 
-### Exercise 4
+### Exercise 3.3.1
 
-Remove this text, and add your answer for Exercise 4 here.
+There appears to be a moderate association between total population and plastic waste per capita. Although, there are some outliers that tend to skew the trend line, there is a negative association between the two variables.
 
-```{r plastic-waste-violin}
+```{r plastic-waste-total population}
 # insert code here
+ggplot(plastic_waste) +
+  aes(x = plastic_waste_per_cap,
+      y = total_pop) +
+  geom_point() +
+  geom_smooth(method = "loess", se = FALSE)
 ```
 
-### Exercise 5
+### Exercise 3.3.2
 
-Remove this text, and add your answer for Exercise 5 here.
+THe relationship between coastal population and plastic waste per capita is slightly stronger than total population's relationship. There is a negative association between the two variables. 
 
-```{r plastic-waste-mismanaged}
+```{r plastic-waste--coastal}
 # insert code here
+ggplot(plastic_waste) +
+  aes(x = plastic_waste_per_cap,
+      y = coastal_pop) +
+  geom_point() +
+  geom_smooth(method = "loess", se = FALSE)
 ```
 
-### Exercise 6
+### Exercise 17.4.4
 
-Remove this text, and add your answer for Exercise 6 here.
-
-```{r plastic-waste-mismanaged-continent}
-# insert code here
-```
-
-### Exercise 7
-
-Remove this text, and add your answer for Exercise 7 here.
-
-```{r plastic-waste-population-total}
-# insert code here
-```
-
-```{r plastic-waste-population-coastal}
-# insert code here
-```
-
-### Exercise 8
-
-Remove this text, and add your answer for Exercise 8 here.
+There appears to be a slight positive correlation between plastic waste and coastal population proportion. There are several African countries that have a low coastal pop proportion to plastic waste relationship, while Oceania have a higher relationship. 
 
 ```{r recreate-viz}
 # insert code here
+new_plastic_waste <- plastic_waste |> 
+  mutate(
+    coastal_population_proportion = coastal_pop / total_pop) |> 
+  filter(plastic_waste_per_cap < 3)
+
+ggplot(new_plastic_waste) +
+  aes(x = coastal_population_proportion,
+      y = plastic_waste_per_cap,
+      color = continent) +
+  geom_point() +
+  geom_smooth(aes(group = 1)) +
+  labs(x = "Coastal population proportion (Coastal / total population",
+       y = "Plastic waste per capita",
+       title = "Plastic waste vs. coastal population proportion by continent")
+  
 ```
 
 ## Pro-Tips
