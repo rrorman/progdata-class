@@ -1,0 +1,14 @@
+---
+title: "Lab 7"
+author: "Reilly Orman"
+date: "4/30/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Portfolio 1 Piece
+
+[Here is a link to my portfolio 1 repo](https://github.com/rrorman/portfolio-1)
