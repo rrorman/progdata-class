@@ -17,7 +17,7 @@ lotr_wider <- pivot_wider(lotr, names_from = Species, values_from = Words)
 ```
 
 ```{r}
-lotr_wide |> 
+lotr_wider |> 
   pivot_longer(cols = Elf:Man, 
                names_to  = 'Species', 
                values_to = "Words")
