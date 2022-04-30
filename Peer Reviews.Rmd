@@ -1,0 +1,23 @@
+---
+title: "Peer Reviews"
+author: "Reilly Orman"
+date: "4/30/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Links to Peer Reviews
+
+[Peer Review 1](https://github.com/ncaliskan/progdata-class/issues/12)
+[Peer Review 2](https://github.com/aeperusse/progdata-class/issues/4)
+[Peer Review 3](https://github.com/avenetto/progdata-class/issues/4)
+[Peer Review 4](https://github.com/jayschmidtavendano/progdata-class/issues/5)
+[Peer Review 5](https://github.com/judesullivan/progdata-class/issues/6)
+[Peer Review 6](https://github.com/cassrichardson/progdata-class/issues/3)
+[Peer Review 7](https://github.com/priyacollins/progdata-class/issues/5)
+[Peer Review 8](https://github.com/valentinafender/progdata-class/issues/5)
+[Peer Review 9](https://github.com/KiprasVarkala/progdata-class/issues/3)
+[Peer Review 10](https://github.com/oujah/my_portfolio/issues/1)
