@@ -27,3 +27,5 @@ Listening to music is an activity that I spend a majority of my time doing. Some
 ## Portfolio 1 Piece
 
 [This is a link to my Portfolio 1 Project Repo](https://github.com/rrorman/portfolio-1)
+
+[This is a link to my Portfolio 2 Project Repo](https://github.com/rrorman/portfolio-2)
